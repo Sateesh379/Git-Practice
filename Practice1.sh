@@ -14,3 +14,5 @@ echo "$COUNT"
 FRUITS=("Apple" "Banana" "Orange")
 
 echo "All Fruits are : ${FRUITS@}"
+
+echo "Fruit Name is : ${FRUITS[1]}"

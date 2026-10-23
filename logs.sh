@@ -9,11 +9,11 @@ echo " Please run script with Sudo Access"
 exit 1
 fi
 
-mkdir -p logs_folder
+#mkdir -p logs_folder
 
 echo "Script Exceution started at  :: $[ date + "%f %T" ]
 
-validate() { 
+#validate() { 
     
     if [ $1 -ne 0 ]; then
     echo " $2 installation failed"
@@ -22,12 +22,12 @@ validate() {
     echo "$2 success"
  fi
     }
-echo "proceeding..."
-dnf install nginx -y &>> $logs_file
-validate $? "Nginx installation"
+#echo "proceeding..."
+#dnf install nginx -y &>> $logs_file
+#validate $? "Nginx installation"
 
 
-dnf install mysql  -y &>> $logs_file
-validate $? "Mysql Server application installation"
+#dnf install mysql  -y &>> $logs_file
+#validate $? "Mysql Server application installation"
 
 echo "Script Exceution ended at  :: $[ date + "%f %T" ]

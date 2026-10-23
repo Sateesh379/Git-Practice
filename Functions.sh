@@ -13,10 +13,8 @@ validate() {
     echo " $2 installation failed"
 
     else
-    echo "$2 success"  
-    
+    echo "$2 success"
     }
-
 echo "proceeding..."
 dnf install nginx -y
 validate $? "Nginx installation"

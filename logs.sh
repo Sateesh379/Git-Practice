@@ -11,7 +11,7 @@ fi
 
 mkdir -p logs_folder
 
-echo "Script Exceution started at  :: $[ date + "%f %T" ] &>> $logs_file
+echo "Script Exceution started at  :: $[ date + "%f %T" ]
 
 validate() { 
     
@@ -30,4 +30,4 @@ validate $? "Nginx installation"
 dnf install mysql  -y &>> $logs_file
 validate $? "Mysql Server application installation"
 
-echo "Script Exceution ended at  :: $[ date + "%f %T" ] &>> $logs_file
+echo "Script Exceution ended at  :: $[ date + "%f %T" ]

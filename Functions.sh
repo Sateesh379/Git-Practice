@@ -9,7 +9,7 @@ fi
 
 validate() { 
     
-    if [ $1 -ne 0]; then
+    if [ $1 -ne 0 ]; then
     echo " $2 installation failed"
 
     else
@@ -23,7 +23,5 @@ validate $? "Nginx installation"
 
 dnf install mysql  -y
 validate $? "Mysql Server application installation"
-
-fi
 
 echo "still proceed"

@@ -13,6 +13,8 @@ fi
 
 echo "Script Exceution started at  :: $[ date + "%f %T" ]
 
+sleep 10
+
 #validate() { 
     
     if [ $1 -ne 0 ]; then

@@ -5,13 +5,15 @@ logs_folder="/var/log/shell-practice"
 logs_file="${logs_folder}/${0}.log
 
 if [ $user_id -ne 0 ]; then
-echo "Please run script with Sudo Access"
+
+echo"Please run the script with Sudo Access"
+
 exit 1
 fi
 
 mkdir -p logs_folder
 
-echo "Script Exceution started at  :: $( date + "%f %T" )
+echo "Script Exceution started at  :: $( date + "%f %T" )  &>> $logs_file
 
 sleep 10
 
@@ -25,11 +27,11 @@ validate() {
  fi
     }
 echo "proceeding..."
-dnf install nginx -y & >> $logs_file
+dnf install nginx -y &>> $logs_file
 validate $? "Nginx installation"
 
 
-dnf install mysql  -y & >> $logs_file
+dnf install mysql  -y  &>> $logs_file
 validate $? "Mysql Server application installation"
 
-echo "Script Exceution ended at  :: $(date + "%f %T")"
+echo "Script Exceution ended at  :: $(date + "%f %T")" &>> $logs_file

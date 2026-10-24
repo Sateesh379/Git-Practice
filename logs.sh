@@ -18,10 +18,10 @@ sleep 10
 validate() { 
     
     if [ $1 -ne 0 ]; then
-    echo " $2 installation failed"
+    echo " $2 installation failed" | tee -a $logs_file
 
     else
-    echo "$2 success"
+    echo "$2 success" | tee -a $logs_file
  fi
     }
 echo "proceeding..."
@@ -32,4 +32,4 @@ validate $? "Nginx installation"
 dnf install mysql  -y &>> $logs_file
 validate $? "Mysql Server application installation"
 
-echo "Script Exceution ended at  :: $( date + "%f %T" )
+echo "Script Exceution ended at  :: $[ date + "%f %T" ]

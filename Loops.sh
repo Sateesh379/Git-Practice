@@ -1,9 +1,33 @@
 #!/bin/bash
 
-echo "Hello World!'
+user_id=$(id -u)
+logs_folder="/var/log/shell-practice"
+logs_file="${logs_folder}/${0}.log"
 
-echo "script executed date is :: $[ date + "f T" ]
+if [ $user_id -ne 0 ]; then
 
-sleep 10
+echo "Please run the script with Sudo Access"
 
-echo "script end date is :: $[ date + "f T" ]
+exit 1
+fi
+
+mkdir -p "logs_folder"
+
+echo "Script Exceution started at  ::$(date +"%f %T")" &>> $logs_file
+
+validate(){
+    if [ $1 -ne 0 ]; then
+        echo "${2}..FAILED" | tee -a $logs_file
+        exit 1
+    else
+        echo "${2}..SUCCESS" | tee -a $logs_file
+    fi
+}
+
+for package in $@
+
+do
+  echo "Going to install : ${package}
+  dnf install $package - y &>> $logs_file
+  echo $? "installing ${package}"
+done

@@ -13,7 +13,7 @@ fi
 
 mkdir -p "logs_folder"
 
-echo "Script Exceution started at  ::$(date "+%f %T")" &>> $logs_file
+echo "Script Exceution started at  ::$(date +"%f %T")" &>> $logs_file
 
 sleep 10
 

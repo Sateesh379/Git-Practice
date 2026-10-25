@@ -29,5 +29,5 @@ for package in $@
 do
   echo "Going to install : ${package}
   dnf install $package - y &>> $logs_file
-  echo $? "installing ${package}"
+  validate $? "installing ${package}"
 done
